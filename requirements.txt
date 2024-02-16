@@ -1,0 +1,62 @@
+accelerate==0.23.*
+chromadb
+colorama
+datasets
+deep-translator==1.9.2
+einops
+exllamav2==0.0.4
+flask
+gradio==3.47.*
+langchain
+langchainhub
+markdown
+nltk
+numexpr
+numpy==1.24.*
+optimum==1.13.1
+pandas
+pdfplumber
+peft==0.5.*
+Pillow>=9.5.0
+pyyaml
+requests
+safetensors==0.4.0
+scipy
+sentencepiece
+sentence-transformers
+tensorboard
+transformers==4.34.*
+tqdm
+wandb
+
+git+https://github.com/oobabooga/torch-grammar.git
+
+# Flash Attention
+https://github.com/Dao-AILab/flash-attention/releases/download/v2.3.2/flash_attn-2.3.2+cu118torch2.1cxx11abiFALSE-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
+
+# Bitsandbytes
+bitsandbytes==0.41.1; platform_system != "Windows"
+https://github.com/jllllll/bitsandbytes-windows-webui/releases/download/wheels/bitsandbytes-0.41.1-py3-none-win_amd64.whl; platform_system == "Windows"
+
+# AutoGPTQ
+https://github.com/jllllll/AutoGPTQ/releases/download/v0.4.2/auto_gptq-0.4.2+cu118-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
+https://github.com/jllllll/AutoGPTQ/releases/download/v0.4.2/auto_gptq-0.4.2+cu118-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
+
+# ExLlama
+https://github.com/jllllll/exllama/releases/download/0.0.17/exllama-0.0.17+cu118-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
+https://github.com/jllllll/exllama/releases/download/0.0.17/exllama-0.0.17+cu118-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
+
+# ExLlama2
+https://github.com/turboderp/exllamav2/releases/download/v0.0.4/exllamav2-0.0.4+cu117-cp310-cp310-win_amd64.whl; platform_system == "Windows"
+https://github.com/turboderp/exllamav2/releases/download/v0.0.4/exllamav2-0.0.4+cu117-cp310-cp310-linux_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64"
+
+# CTransformers
+https://github.com/jllllll/ctransformers-cuBLAS-wheels/releases/download/AVX2/ctransformers-0.2.27+cu118-py3-none-any.whl
+
+# Llama-cpp-python
+https://github.com/jllllll/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.2.11+cu118-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"
+https://github.com/jllllll/llama-cpp-python-cuBLAS-wheels/releases/download/textgen-webui/llama_cpp_python_cuda-0.2.11+cu118-cp310-cp310-manylinux_2_31_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
+
+# Llama-cpp-python (without CUDA)
+https://github.com/abetlen/llama-cpp-python/releases/download/v0.2.11/llama_cpp_python-0.2.11-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl; platform_system == "Linux" and platform_machine == "x86_64" and python_version == "3.10"
+https://github.com/abetlen/llama-cpp-python/releases/download/v0.2.11/llama_cpp_python-0.2.11-cp310-cp310-win_amd64.whl; platform_system == "Windows" and python_version == "3.10"

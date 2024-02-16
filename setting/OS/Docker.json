@@ -1,0 +1,19 @@
+{
+    "saveload_config":
+    {
+        "data_folder_path": "/{proj_name}/data"
+    },
+    "embedding_config":
+    {
+        "embedding_model_folder_path": "/{proj_name}/model/embedding"
+    },
+    "database_config":
+    {
+        "database_folder_path": "/{proj_name}/database"
+    },
+    "gpt_config":
+    {
+        "gpt_model_folder_path": "/{proj_name}/model/gpt",
+        "offload_folder": "/{proj_name}/offload"
+    }
+}

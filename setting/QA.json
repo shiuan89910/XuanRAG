@@ -1,0 +1,176 @@
+{
+    "saveload_config":
+    {
+        "data_name": ".txt",
+        "data_folder_path": "C:\\Users\\{user_name}\\{proj_name}\\data",
+        "separators": ["\n\n", "\n", " ", ""],
+        "chunk_size": 100,
+        "chunk_overlap": 20,
+        "is_separator_regex": false
+    },
+    "embedding_config":
+    {
+        "embedding_model_name": "",
+        "embedding_model_folder_path": "C:\\Users\\{user_name}\\{proj_name}\\model\\embedding"
+    },
+    "database_config":
+    {
+        "database_folder_path": "C:\\Users\\{user_name}\\{proj_name}\\database",
+        "query_database_name": "",
+        "query_distance_fn": "l2",
+        "query_1st_collection_name": "first_collection",
+        "n_result_query_1st": 50,
+        "rm_dupl_dist_thresh_std_ratio": 0,
+        "rm_dupl_result_1st_top_n": 5,
+        "query_2nd_collection_name": "second_collection",
+        "n_result_query_2nd": 1,
+        "nltk_keyword_top_n": 30
+    },
+    "gpt_config":
+    {
+        "gpt_model_folder_path": "C:\\Users\\{user_name}\\{proj_name}\\model\\gpt",
+        "trust_remote_code": true,
+        "low_cpu_mem_usage": true,
+        "torch_dtype": "float16",
+        "device_map": "auto",
+        "device": "cuda:0",
+        "gpu_max_memory": "6GiB",
+        "cpu_max_memory": "12GiB",
+        "offload_folder": "C:\\Users\\{user_name}\\{proj_name}\\offload",
+        "offload_state_dict": false,
+        "compress_pos_emb": 1, 
+        "alpha_value": 1,
+        "rope_freq_base": 0
+    },
+    "bitsandbites_config":
+    {
+        "load_in_8bit": true,
+        "llm_int8_enable_fp32_cpu_offload": true,
+        "load_in_4bit": false,
+        "bnb_4bit_quant_type": "nf4",
+        "bnb_4bit_use_double_quant": false,
+        "bnb_4bit_compute_dtype": "bfloat16"
+    },
+    "gptq_config":
+    {
+
+    },
+    "autogptq_config":
+    {
+        "bits": 4,
+        "group_size": 128,
+        "desc_act": false,
+        "use_triton": false,
+        "inject_fused_attention": true,
+        "inject_fused_mlp": true,
+        "use_cuda_fp16": true,
+        "disable_exllama": true
+    },
+    "ctransformers_config":
+    {
+        "threads": 0,
+        "gpu_layers": 0,
+        "batch_size": 512,
+        "context_length": 4096,
+        "model_type": null,
+        "mmap": false,
+        "mlock": false
+    },
+    "exllama_config":
+    {
+        "gpu_split": [],
+        "max_seq_len": 4096
+    },
+    "exllama2_config":
+    {
+        "gpu_split": [],
+        "max_seq_len": 4096
+    },
+    "llamacpp_config":
+    {
+        "capacity_bytes": null,
+        "n_ctx": 4096,
+        "seed": 0,
+        "n_threads": 0,
+        "n_batch": 512,
+        "use_mmap": true,
+        "use_mlock": true,
+        "low_vram": true,
+        "n_gpu_layers": 0,
+        "mul_mat_q": false,
+        "tensor_split": null
+    },
+    "inference_config":
+    {
+        "gpt_model_name": "",
+        "load_type": "exllama2",
+        "gpt_type": "autogptq",
+        "bitsandbites": false,
+        "gptq": false,
+        "offload": false,
+        "stream": true,
+        "gpt_inference_params": 
+        {
+            "stop_strings": [],
+            "ban_token_customized": [],
+            "negative_prompt_ids": "",
+            "grammar_str": "",
+            "num_return_sequences": 1,
+            "max_new_tokens_auto": false,
+            "max_new_tokens": 4096,
+            "max_length": 4096,
+            "truncation_length": 4096,
+            "max_tokens_per_sec": 0,
+            "use_cache": true,
+            "temperature": 1.31, 
+            "top_p": 0.64, 
+            "top_k": 85, 
+            "typical_p": 1, 
+            "epsilon_cutoff": 0, 
+            "eta_cutoff": 0, 
+            "repetition_penalty": 1.21, 
+            "encoder_repetition_penalty": 1.5, 
+            "no_repeat_ngram_size": 0, 
+            "min_length": 0, 
+            "do_sample": true, 
+            "penalty_alpha": 0, 
+            "num_beams": 1, 
+            "length_penalty": 1, 
+            "early_stopping": false, 
+            "ban_eos_token": false, 
+            "add_bos_token": true, 
+            "add_special_tokens": true, 
+            "skip_special_tokens": true,
+            "repetition_penalty_range": 0,
+            "tfs": 1,
+            "top_a": 0,
+            "mirostat_mode": 0,
+            "mirostat_tau": 5,
+            "mirostat_eta": 0.1,
+            "guidance_scale": 1,
+            "seed": -1
+        }
+    },
+    "prompt_config":
+    {
+        "max_conversation_len": 1,
+        "is_conversation": false,
+        "instruction": "", 
+        "prompt": "{prompt} [/INST] ",
+        "completion": "{completion} [INST] ",
+        "template": "[INST] <<SYS>>\n{instruction}\n\n{context}\n<</SYS>>\n\n"
+    },
+    "webui_config":
+    {
+        "host_ip": "0.0.0.0",
+        "chat_mode": "qa",
+        "lang_code": "zh-TW"
+    },
+    "history_config":
+    {
+        "history_database_name": "history",
+        "history_collection_name": "history_collection",
+        "question_database_name": "question",
+        "question_collection_name": "question_collection"
+    }
+}

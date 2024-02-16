@@ -1,0 +1,8 @@
+{
+    "max_conversation_len": 1,
+    "is_conversation": false,
+    "instruction": "", 
+    "prompt": "### Human: {prompt}\n\n### Assistant:",
+    "completion": "",
+    "template": ""
+}

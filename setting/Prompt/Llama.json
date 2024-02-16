@@ -1,0 +1,8 @@
+{
+    "max_conversation_len": 1,
+    "is_conversation": false,
+    "instruction": "", 
+    "prompt": "{prompt} [/INST] ",
+    "completion": "{completion} [INST] ",
+    "template": "[INST] <<SYS>>\n{instruction}\n\n{context}\n<</SYS>>\n\n"
+}

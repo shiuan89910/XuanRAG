@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Semantics Search Page</title>
+    <style>
+        body {
+            color: white;
+            background-color: #0b3a74;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        textarea {
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: white;
+            background-color: #2f6ab2;
+        }
+
+        textarea[name="context1"], 
+        textarea[name="context2"] {
+            width: 500px;
+            height: 30px;
+        }
+
+        textarea[name="result"] {
+            width: 1000px;
+            height: 300px;
+        }
+
+        textarea::placeholder {
+            color: rgb(179, 179, 179)
+        }
+
+        button[type="submit"] {
+            color: white;
+            background-color: #0a2a52;
+        }
+
+        div a {
+            color: white;
+            background-color: #0b3a74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Semantics Search Page</h1>
+
+    <form action="/embeddingsemanticsearch" method="post">
+        <input type="checkbox" name="sorted" {% if sorted %} sorted {% endif %}> Sorted by Score</input>
+        <br>
+        <textarea name="context1" placeholder="Context1">{{ context1 }}</textarea>
+        <textarea name="context2" placeholder="Context2">{{ context2 }}</textarea>
+        <button type="submit">Calculate Embedding Similarity</button>
+
+    </form>
+
+    <textarea name="result" placeholder="Result" readonly>{{ result }}</textarea>
+
+    <br><br><br>
+
+    <div>
+        <a href="/">Main Page</a>
+    </div>
+
+</body>
+</html>

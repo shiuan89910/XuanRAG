@@ -1,0 +1,8 @@
+{
+    "max_conversation_len": 1,
+    "is_conversation": false,
+    "instruction": "", 
+    "prompt": "<s>[INST] {prompt} [/INST]",
+    "completion": "",
+    "template": ""
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Load Page</title>
+    <style>
+        body {
+            color: white;
+            background-color: #0b3a74;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        button[type="submit"] {
+            color: white;
+            background-color: #0a2a52;
+        }
+
+        div a {
+            color: white;
+            background-color: #0b3a74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Load Page</h1>
+
+    <form action="/loadallsettings" method="post">
+        <button type="submit">Load All Settings</button>
+    </form>
+
+    <form action="/loadembeddingmodel" method="post">
+        <button type="submit">Load Embedding Model</button>
+    </form>
+
+    <form action="/createloadcollection" method="post">
+        <button type="submit">Create Load Collection</button>
+    </form>
+
+    <form action="/loadgptmodel" method="post">
+        <button type="submit">Load GPT Model</button>
+    </form>
+    
+    <br><br><br>
+
+    <div>
+        <a href="/">Main Page</a>
+    </div>
+
+    <div>
+        <a href="/databaseindexpage">Database Index Page</a>
+    </div>
+
+</body>
+</html>

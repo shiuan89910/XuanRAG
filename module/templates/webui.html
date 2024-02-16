@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>XuanRAG</title>
+    <style>
+        body {
+            color: white;
+            background-color: #0b3a74;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .partA {
+            flex: 7.5;
+            border-right: 5px solid rgb(130, 130, 130);
+            padding-right: 5px;
+        }
+
+        .partB {
+            flex: 2.5;
+            padding-left: 5px;
+        }
+
+        textarea {
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: white;
+            background-color: #2f6ab2;
+        }
+
+        textarea[name="query"] {
+            width: 500px;
+            height: 30px;
+        }
+
+        textarea[name="response"] {
+            width: 1000px;
+            height: 300px;
+        }
+
+        textarea[name="yourfeedback"] {
+            width: 500px;
+            height: 50px;
+        }
+
+        textarea[name="nameconversation"] {
+            width: 300px;
+            height: 20px;
+        }
+
+        textarea::placeholder{
+            color: rgb(179, 179, 179)
+        }
+
+        button {
+            color: white;
+            background-color: #0a2a52;
+        }
+
+        .btn-toggle, .btn-delete, .btn-rename {
+            color: white;
+            background-color:   #134c91;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+
+        th, td, tr:nth-child(even) {
+            border: 1px solid black;
+            text-align: left;
+            color: white;
+        }
+
+        th {
+            background-color:  #134c91;
+        }
+
+        td, tr:nth-child(even) {
+            background-color: #4297ffbd;
+        }
+
+        th:first-child {
+            width: 62.5%;
+        }
+
+        th:last-child {
+            width: 37.5%;
+        }
+
+        tr.selected {
+            background-color: rgba(255, 255, 0, 0.756);
+        }
+
+        div a {
+            color: white;
+            background-color: #0b3a74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>XuanRAG</h1>
+
+    <div class="container">
+        <div class="partA">
+            <form id="answerthequestion" action="/answerthequestion" method="post">
+                <input type="checkbox" id="reanswer" name="reanswer">Re-answer the question</input>
+                <br>
+                <textarea id="query" name="query" placeholder="The question">{{ query }}</textarea>
+                <button type="submit">Answer the question</button>
+                <button type="button" id="stoptheanswer">Stop the answer</button>
+            </form>
+        
+            <textarea id="response" name="response" placeholder="The answer" readonly></textarea>
+
+            <br><br><br>
+
+            <form action="/feedbacktheanswer" method="post">
+                <input type="checkbox" id="wellrate" name="wellrate" value="true" onchange="updateRate(true)"> Well</input>     
+                <input type="checkbox" id="worserate" name="worserate" value="true" onchange="updateRate(false)"> Worse</input>
+                <br>
+                <textarea id="yourfeedback" name="yourfeedback" placeholder="Your Feedback"></textarea>
+                <button type="submit">Feedback</button>
+            </form>
+
+        </div>
+        <div class="partB">
+            <form id="tabledata" action="/addtableitem" method="post">
+                <textarea id="nameconversation" name="nameconversation" placeholder="Name Conversation"></textarea>
+                <button type="submit">New Conversation</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conversation Name</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in table_data %}
+                        <tr data-index="{{ loop.index0 }}">
+                            <td>{{ item.name }}</td>
+                            <td>
+                                <button class="btn-toggle" onclick="tableToggleItem('{{ loop.index0 }}')">Select</button>
+                                <button class="btn-delete" onclick="tableDeleteItem('{{ loop.index0 }}')">Delete</button>
+                                <button class="btn-rename" onclick="tableRenameItem('{{ loop.index0 }}')">Rename</button>
+                                <textarea style="display:none" id="uuid{{ loop.index0 }}" name="uuid{{ loop.index0 }}">{{ item.uuid }}</textarea>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <br><br><br>
+
+    <div>
+        <a href="/languagepage">Language Page</a>
+    </div>
+
+    <div>
+        <a href="/loadpage">Load Page</a>
+    </div>
+
+    <div>
+        <a href="/modepage">Mode Page</a>
+    </div>
+
+    <div>
+        <a href="/databaseindexpage">Database Index Page</a>
+    </div>
+
+    <div>
+        <a href="/semanticsearchpage">Semantics Search Page</a>
+    </div>
+
+    <script>
+        let translateEnable;
+        async function answerQuestion(event) {
+            event.preventDefault();
+            var responseEn = document.getElementById("response");
+            responseEn.value = "";
+            translateEnable = true;
+            try {
+                const response = await fetch("/answerthequestion", {
+                    method: "POST",
+                    body: new FormData(event.target),
+                });
+                const reader = response.body.getReader();
+                const decodeStream = new ReadableStream({
+                    async start(controller) {
+                        async function read() {
+                            const { done, value } = await reader.read();
+                            if (done) {
+                                controller.close();
+                                if (translateEnable) {
+                                    historyQuestionAnswer();
+                                    setTimeout(translateAnswer, 0);
+                                }
+                                return;
+                            } else {
+                                responseEn.value = new TextDecoder().decode(value);
+                                read();
+                            }
+                        }
+                        await read();
+                    },
+                });
+                const text = await new Response(decodeStream).text();
+            } catch (error) {
+                console.error("Generate Error: ", error);
+            }
+        }
+        function historyQuestionAnswer() {
+            var responseHistory = document.getElementById("response").value;
+            const reanswer = document.getElementById("reanswer");
+            const reanswerchecked = reanswer.checked;
+            fetch(`/historythequestionanswer?reanswerchecked=${reanswerchecked}`, {
+                method: "POST",
+                body: JSON.stringify({ text: responseHistory }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then(function(response) {
+                reanswer.checked = false;
+            })
+            .catch(error => console.error("History Error: ", error));
+        }
+        function translateAnswer() {
+            var responseTrans = document.getElementById("response").value;
+            fetch("/translatetheanswer", {
+                method: "POST",
+                body: JSON.stringify({ text: responseTrans }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(translation => {
+                document.getElementById("response").value = translation.translate_answer;
+            })
+            .catch(error => console.error("Translate Error: ", error));
+        }
+        function stopAnswer(event) {
+            translateEnable = false;
+            fetch("/stoptheanswer", {
+                method: "POST",
+            })
+            .then(function(response) {
+            })
+            .catch(error => console.error("Stop Generate Error: ", error));
+        }
+        function updateRate(wellRateChecked) {
+            var wellrate = document.getElementById("wellrate");
+            var worserate = document.getElementById("worserate");
+            if (wellRateChecked) {
+                worserate.checked = false;
+            } else {
+                wellrate.checked = false;
+            }
+        }
+        function tableToggleItem(index) {
+            const uuid = document.getElementById(`uuid${index}`).value;
+            const row = document.querySelector(`tr[data-index="${index}"]`);
+            if (row) {
+                const selected = row.classList.contains("selected");
+                const selectedRows = document.querySelectorAll("tr.selected");
+                selectedRows.forEach(selectedRow => {
+                    if (selectedRow !== row) {
+                        selectedRow.classList.remove("selected");
+                    }
+                });
+                row.classList.toggle("selected");
+                fetch(`/toggletableitem/${uuid}?selected=${selected}`, {
+                    method: "POST"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    updateHistory(data.q_list, data.r_list);
+                });
+            }
+        }
+        function updateHistory(qList, rList) {
+            const separator = "-".repeat(100); 
+            const formattedContent = qList.map((q, i) => `Q:\n${q}\nR:\n${rList[i]}\n\n${separator}\n\n`).join("");
+            document.getElementById("response").value = formattedContent.trim();
+        }
+        function tableRenameItem(index) {
+            const uuid = document.getElementById(`uuid${index}`).value;
+            const newName = document.getElementById("nameconversation").value;
+            if (newName) {
+                const formData = new FormData();
+                formData.append("new_name", newName);
+                fetch(`/renametableitem/${index}/${uuid}`, {
+                    method: "POST",
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(() => location.reload());
+            }
+        }
+        function tableDeleteItem(index) {
+            const uuid = document.getElementById(`uuid${index}`).value;
+            fetch(`/deletetableitem/${index}/${uuid}`, { method: "POST" })
+                .then(response => response.json())
+                .then(() => location.reload());
+        }
+        const formSubmitHandler = (e) => {
+            e.preventDefault();
+            const name = document.getElementById("nameconversation").value;
+            if (name) {
+                fetch(`/addtableitem`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: `name=${name}`,
+                })
+                .then(response => response.json())
+                .then(() => {
+                    document.querySelectorAll("tr.selected").forEach(row => row.classList.remove("selected"));
+                    location.reload();
+                });
+            }
+        };
+        document.getElementById("answerthequestion").addEventListener("submit", answerQuestion);
+        document.getElementById("stoptheanswer").addEventListener("click", stopAnswer);
+        document.getElementById("tabledata").addEventListener("submit", formSubmitHandler);
+    </script>
+
+    <!--
+    -->
+
+</body>
+</html>

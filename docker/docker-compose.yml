@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  xuanRAG:
+    build:
+      context: .
+      dockerfile: XuanRAG
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/XuanRAG/data
+      - ./database:/XuanRAG/database
+      - ./model:/XuanRAG/model
+      - ./module:/XuanRAG/module
+      - ./setting:/XuanRAG/setting
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]
