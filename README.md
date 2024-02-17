@@ -1,9 +1,32 @@
-# 1. 專案流程圖 & 目錄結構圖
-## 1.1. XuanRAG 專案流程圖
+# 1. XuanRAG 專案簡介
+# 1.1. 專案概念圖
+![XuanRAG Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_concept_map.png)
+
+## 1.2. 使用者介面介紹
+![XuanRAG UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_ui_introduction.png)
+
+## 1.3. Text Embedding 概念圖
+![Text Embedding Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_concept_map.png)
+
+## 1.4. Text Embedding 使用者介面介紹
+![Text Embedding UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_ui_introduction.png)
+
+## 1.5. Semantic Search 概念圖
+![Semantic Search Concept Map 1](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_1.png)
+![Semantic Search Concept Map 2](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_2.png)
+![Semantic Search Concept Map 3](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_3.png)
+
+## 1.6. Semantic Search 使用者介面介紹
+![Semantic Search UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_ui_introduction.png)
+
+
+
+# 2. 專案流程圖 & 目錄結構圖
+## 2.1. XuanRAG 專案流程圖
 ![XuanRAG Project Flowchart](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_project_flowchart.png)
 此圖展示 LLM RAG（檢索增強式語言模型生成）專案的架構。每個模組都旨在處理系統的不同方面，確保模組化和易於維護。
 
-### 1.1.1. 模組描述
+### 2.1.1. 模組描述
 - `param.py`：定義整個專案中使用的參數。
 - `gpt.py`：管理 GPT (Tansformer、CTransformer、AutoGPTQ) 模型的加載與推論。
 - `llama.py`：管理 GPT (Exllama、LLamaCpp) 模型的加載與推論。
@@ -14,17 +37,17 @@
 - `saveload.py`：包含儲存和加載檔案或數據的功能。
 - `util.py`：提供整個專案中使用的實用功能。
 
-### 1.1.2. 數據流向
+### 2.1.2. 數據流向
 箭頭指示模組之間的數據流向和依賴關係。例如：param.py 是一個基礎模組，它向 gpt.py 和 llama.py 提供參數，這兩個模組又向 webui.py 提供問答互動的結果、embedding.py 模組與數據庫緊密合作以管理嵌入。
 
-### 1.1.3. 配置
+### 2.1.3. 配置
 .json config 文件被用來儲存配置細節，這些配置細節會被相應的模組加載和使用。
 
-### 1.1.4. 使用方式
+### 2.1.4. 使用方式
 透過 webui.py 來進行，它協調 gpt.py 和 llama.py 模型的使用，以及由 database.py 和 embedding.py 提供的必要數據處理。
 
 
-## 1.2. XuanRAG 目錄結構圖
+## 2.2. XuanRAG 目錄結構圖
 ```
 XuanRAG
 ├── data                              # 用於 Embedding 的數據相關檔案
@@ -51,7 +74,7 @@ XuanRAG
 │   ├── param.py                      # 參數設置模組
 │   ├── saveload.py                   # 儲存和加載檔案或數據功能模組
 │   ├── util.py                       # 工具功能模組
-│   ├── webui.py                      # Web 用戶界面模組
+│   ├── webui.py                      # Web 使用者界面模組
 ├── offload                           # 模型參數卸載檔案夾
 ├── setting                           # 配置檔案夾
 │   ├── Default.json                  # 預設配置檔
@@ -60,8 +83,6 @@ XuanRAG
 ├── requirements.txt                  # 專案依賴的 Python 套件列表
 ```
 此目錄結構提供專案組織的直觀視圖，每個組件都被整理在合適的位置，方便開發者快速導航和理解專案的構建。
-
-
 
 
 
@@ -115,6 +136,8 @@ GPT 請參照：[GPT 模型](https://github.com/shiuan89910/XuanRAG/blob/main/mo
 cd module
 python webui.py
 ```
+
+
 
 # 4. Docker 的安裝方式
 Docker 安裝方式請參照：[Docker 安裝方式](https://github.com/shiuan89910/XuanRAG/blob/main/docker/README.md)
