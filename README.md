@@ -25,6 +25,8 @@
 透過 webui.py 來進行，它協調 gpt.py 和 llama.py 模型的使用，以及由 database.py 和 embedding.py 提供的必要數據處理。
 
 ## 1.2. XuanRAG 目錄結構圖
+
+```
 XuanRAG
 ├── data # 用於 Embedding 的數據集和數據相關檔案
 ├── database # 數據集和數據相關檔案 Embedding 後儲存於數據庫的檔案
@@ -57,6 +59,7 @@ XuanRAG
 │   ├── Chat.json # Chat 模式配置檔
 │   ├── QA.json # QA 模式配置檔
 ├── requirements.txt # 專案依賴的 Python 套件列表
+```
 
 
 
