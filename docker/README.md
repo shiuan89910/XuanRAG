@@ -7,20 +7,26 @@
 ## 1.2. 透過終端安裝 WSL 於 Windows
 - [WSL 安裝指南官方頁面](https://learn.microsoft.com/zh-tw/windows/wsl/install)
   - 開啟終端。
-  - 執行 `wsl --install`。
-  - 或者（進階設定）設置預設版本為 2，列出可用發行版，指定發行版安裝：
-    ``` bash
+  - 執行以下命令：
+    ```bash
+    wsl --install
+    ```
+  - 或者，進行（進階）設定，設置預設版本為 2，列出可用發行版，指定發行版安裝，執行以下命令：
+    ```bash
     wsl --set-default-version 2
     wsl --list --online
     wsl --install -d "DistroName"
     ```
   - 創建 WSL（Ubuntu）用戶名與密碼。
-  - 檢查（新終端）`wsl --list --verbose`。
+  - 檢查結果（新終端），執行以下命令：
+    ```bash
+    wsl --list --verbose
+    ```
 
 
 ## 1.3. 在 WSL 中安裝 CUDA Toolkit
 - [CUDA Toolkit 下載頁面](https://developer.nvidia.com/cuda-11-8-0-download-archive)
-  - 下載並安裝 CUDA Toolkit：
+  - 下載並安裝 CUDA Toolkit，執行以下命令：
     ```bash
     wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
     sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
@@ -32,14 +38,24 @@
     ```
 
 ## 1.4. 在 WSL 中進行後續步驟
-- 將 CUDA 路徑添加至 `.bashrc`：
+- 將 CUDA 路徑添加至 `.bashrc`，執行以下命令與添加複製路徑 (請逐步執行)：
   ```bash
   cd /usr/local/cuda/bin/
-  pwd # 複製顯示的路徑
+  pwd
+  # 複製顯示的路徑
   cd
-  nano .bashrc # 在文件末尾添加：export PATH=$PATH:(複製的路徑)
+  nano .bashrc
+  # 在文件末尾添加 export PATH=$PATH:(複製的路徑)
   # 使用 Ctrl+X，然後 Y 並按 Enter 離開 nano
-  sudo reboot # 重啟
+  sudo reboot
+  # 重啟終端
+  wsl
+  ```
+- 檢查結果，執行以下命令：
+  ```bash
+  echo $PATH
+  nvidia-smi
+  nvcc --version
   ```
 
 
