@@ -155,4 +155,4 @@ Docker 安裝方式請參照：[Docker 安裝方式](https://github.com/shiuan89
 
 
 # 5. 致謝
-本專案 `gpt.py`、`llama.py`、`util.py` 部分程式碼參考了 [oobabooga](https://github.com/oobabooga/text-generation-webui) 的實作，特此致謝。原始程式碼採用 [AGPL-3.0 license]([https://www.gnu.org/licenses/agpl-3.0.html](https://github.com/shiuan89910/XuanRAG/tree/main?tab=GPL-3.0-1-ov-file#GPL-3.0-1-ov-file)https://github.com/shiuan89910/XuanRAG/tree/main?tab=GPL-3.0-1-ov-file#GPL-3.0-1-ov-file) 許可證。
+本專案 `gpt.py`、`llama.py`、`util.py` 部分程式碼參考了 [oobabooga](https://github.com/oobabooga/text-generation-webui) 的實作，特此致謝。原始程式碼採用 [AGPL-3.0 license](https://github.com/shiuan89910/XuanRAG/tree/main?tab=GPL-3.0-1-ov-file#GPL-3.0-1-ov-file) 許可證。
