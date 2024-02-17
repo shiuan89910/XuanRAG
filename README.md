@@ -1,3 +1,6 @@
+# 專案流程圖 & 目錄結構圖
+![XuanRAG Project Flowchart](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG_xuanrag_project_flowchart.png)
+
 # 安裝與入門指南
 
 ## 1. 安裝 Conda
