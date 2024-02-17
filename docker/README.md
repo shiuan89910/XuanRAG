@@ -3,18 +3,20 @@
 - [Nvidia CUDA 驅動下載頁面](https://www.nvidia.com/Download/index.aspx?lang=en-us) 或 [Nvidia 顯卡驅動下載頁面](https://www.nvidia.com.tw/download/driverResults.aspx/193749/tw)
   - 選擇正確的驅動版本（11.8）進行安裝。
 
-## 1.2. 通過終端安裝 WSL 於 Windows
+
+## 1.2. 透過終端安裝 WSL 於 Windows
 - [WSL 安裝指南官方頁面](https://learn.microsoft.com/zh-tw/windows/wsl/install)
   - 開啟終端。
   - 執行 `wsl --install`。
-  - （進階設定）設置預設版本為 2，列出可用發行版，指定發行版安裝：
-    ```
+  - 或者（進階設定）設置預設版本為 2，列出可用發行版，指定發行版安裝：
+    ``` bash
     wsl --set-default-version 2
     wsl --list --online
     wsl --install -d "DistroName"
     ```
   - 創建 WSL（Ubuntu）用戶名與密碼。
-  - （新終端檢查）`wsl --list --verbose`。
+  - 檢查（新終端）`wsl --list --verbose`。
+
 
 ## 1.3. 在 WSL 中安裝 CUDA Toolkit
 - [CUDA Toolkit 下載頁面](https://developer.nvidia.com/cuda-11-8-0-download-archive)
@@ -45,8 +47,10 @@
 # 2. XuanRAG 專案設定指南
 本指南將引導您如何將 XuanRAG 專案放置到指定路徑，並透過 Docker 啟動專案。
 
+
 ## 2.1. 將 XuanRAG 專案放置到指定路徑
 首先，將 XuanRAG 專案放置到 `C:\Users\(User Name)` 路徑下。`(User Name)` 為您電腦的實際使用者名稱。
+
 
 ## 2.2. 修改 `docker-compose.yml`
 在進行下一步之前，需要對 `docker-compose.yml` 進行簡單的修改。使用文字編輯器開啟 `docker-compose.yml`，並找到以下行：
@@ -58,6 +62,7 @@
 ```yaml
       # - ./module:/XuanRAG/module
 ```
+
 
 ## 2.3. 開啟終端機
 在終端機中，請依照以下指令操作
