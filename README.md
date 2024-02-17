@@ -2,19 +2,29 @@
 # 1.1. 專案概念圖
 ![XuanRAG Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_concept_map.png)
 
+
 ## 1.2. 使用者介面介紹
 ![XuanRAG UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_ui_introduction.png)
+
 
 ## 1.3. Text Embedding 概念圖
 ![Text Embedding Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_concept_map.png)
 
+
 ## 1.4. Text Embedding 使用者介面介紹
 ![Text Embedding UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_ui_introduction.png)
 
+
 ## 1.5. Semantic Search 概念圖
+### 1.5.1. Chunk Strategy & Embedding
 ![Semantic Search Concept Map 1](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_1.png)
+
+### 1.5.2. Vector Database
 ![Semantic Search Concept Map 2](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_2.png)
+
+### 1.5.3. Re-Ranking & Semantic Search
 ![Semantic Search Concept Map 3](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_3.png)
+
 
 ## 1.6. Semantic Search 使用者介面介紹
 ![Semantic Search UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_ui_introduction.png)
