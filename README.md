@@ -151,3 +151,7 @@ python webui.py
 
 # 4. Docker 的安裝方式
 Docker 安裝方式請參照：[Docker 安裝方式](https://github.com/shiuan89910/XuanRAG/blob/main/docker/README.md)
+
+
+
+# # 本專案 `gpt.py`、`llama.py`、`util.py` 部分程式碼參考了 [oobabooga](https://github.com/oobabooga/text-generation-webui) 的實作，特此致謝。原始程式碼採用 [AGPL-3.0 license](https://www.gnu.org/licenses/agpl-3.0.html) 許可證。
