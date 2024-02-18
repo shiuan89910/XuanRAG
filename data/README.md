@@ -1,3 +1,10 @@
+# 0. 目錄
+- [1. 外部領域知識 (External Domain Knowledge) 的檔案路徑](#1-外部領域知識-external-domain-knowledge-的檔案路徑)
+  - [1.1. 轉換方式](#11-轉換方式)
+    - [1.1.2. WebUI 轉換流程](#112-webui-轉換流程)
+    - [1.1.3. XuanRAG 模組中的 `database.py` 檔轉換流程](#113-xuanrag-模組中的-databasepy-檔轉換流程)
+
+
 # 1. 外部領域知識 (External Domain Knowledge) 的檔案路徑
 外部領域知識是通過嵌入模型 (Embedding Model) 轉換成向量資料的，這一過程允許模型理解和處理這些知識。以下介紹了如何將外部領域知識的文本轉換為模型能夠處理的向量資料。
 
