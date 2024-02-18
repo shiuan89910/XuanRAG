@@ -30,6 +30,9 @@
 
 
 # 1. XuanRAG 專案簡介
+實現了基於檢索增強的生成，提高了問答系統的準確性和靈活性。
+
+
 # 1.1. 專案概念圖
 ![XuanRAG Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_concept_map.png)
 
