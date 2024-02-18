@@ -34,48 +34,48 @@
 
 
 # 1.1. 專案概念圖
-![XuanRAG Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_concept_map.png)
+![XuanRAG Concept Map](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/xuanrag_concept_map.png)
 
 [回到目錄](#0-目錄)
 
 
 ## 1.2. 使用者介面介紹
-![XuanRAG UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_ui_introduction.png)
+![XuanRAG UI Introduction](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/xuanrag_ui_introduction.png)
 
 [回到目錄](#0-目錄)
 
 
 ## 1.3. Text Embedding 概念圖
-![Text Embedding Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_concept_map.png)
+![Text Embedding Concept Map](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/text_embedding_concept_map.png)
 
 [回到目錄](#0-目錄)
 
 
 ## 1.4. Text Embedding 使用者介面介紹
-![Text Embedding UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_ui_introduction.png)
+![Text Embedding UI Introduction](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/text_embedding_ui_introduction.png)
 
 [回到目錄](#0-目錄)
 
 
 ## 1.5. Semantic Search 概念圖
 ### 1.5.1. Chunk Strategy & Embedding
-![Semantic Search Concept Map 1](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_1.png)
+![Semantic Search Concept Map 1](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/semantic_search_concept_map_1.png)
 
 [回到目錄](#0-目錄)
 
 ### 1.5.2. Vector Database
-![Semantic Search Concept Map 2](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_2.png)
+![Semantic Search Concept Map 2](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/semantic_search_concept_map_2.png)
 
 [回到目錄](#0-目錄)
 
 ### 1.5.3. Re-Ranking & Semantic Search
-![Semantic Search Concept Map 3](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_3.png)
+![Semantic Search Concept Map 3](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/semantic_search_concept_map_3.png)
 
 [回到目錄](#0-目錄)
 
 
 ## 1.6. Semantic Search 使用者介面介紹
-![Semantic Search UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_ui_introduction.png)
+![Semantic Search UI Introduction](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/semantic_search_ui_introduction.png)
 
 [回到目錄](#0-目錄)
 
@@ -83,7 +83,7 @@
 
 # 2. 專案流程圖 & 目錄結構圖
 ## 2.1. XuanRAG 專案流程圖
-![XuanRAG Project Flowchart](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_project_flowchart.png)
+![XuanRAG Project Flowchart](https://github.com/shiuan89910/XuanProjectData/blob/main/XuanRAG/xuanrag_project_flowchart.png)
 此圖展示 LLM RAG（檢索增強式語言模型生成）專案的架構。每個模組都旨在處理系統的不同方面，確保模組化和易於維護。
 
 [回到目錄](#0-目錄)
