@@ -5,11 +5,11 @@
 
 
 # 1. 嵌入模型 (Embedding Model) 的檔案路徑
-本指南提供關於開源嵌入模型（Embedding Model）的權重下載連結。您可以通過 Hugging Face 平台獲取這些資源，進行研究或開發工作。
+本指南提供關於開源嵌入模型（Embedding Model）的權重下載連結。您可以透過 Hugging Face 平台獲取這些資源，進行研究或開發工作。
 
 
 ## 1.1. 權重下載
-開源嵌入模型的權重可以通過 [Hugging Face](https://huggingface.co/models) 進行下載。Hugging Face 提供了廣泛的預訓練模型，支持各種自然語言處理任務。
+開源嵌入模型的權重可以透過 [Hugging Face](https://huggingface.co/models) 進行下載。Hugging Face 提供了廣泛的預訓練模型，支持各種自然語言處理任務。
 
 
 ## 1.2. 授權條款注意事項
