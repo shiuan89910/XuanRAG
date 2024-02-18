@@ -37,19 +37,19 @@
 
 ### 1.1.3. database_config
 - **增強檢索向量資料庫參數 (RAG Vector Database):** 設定用於儲存和檢索向量的資料庫參數。
-- P.S. distance_fn 可設定參數："l2" 或 "ip" 或 "cosine"
+  - P.S. distance_fn 可設定參數："l2" 或 "ip" 或 "cosine"
 
 ### 1.1.4. gpt_config
 - **大型語言模型-預訓練模型載入 (Loading):** 配置如何載入預訓練的大型語言模型。
-- P.S. gpu_max_memory 與 cpu_max_memory 可設定參數類型："1GiB" 或 "1024MiB" 其中的數值可自行做設定
+  - P.S. gpu_max_memory 與 cpu_max_memory 可設定參數類型："1GiB" 或 "1024MiB" 其中的數值可自行做設定
 
 ### 1.1.5. 大型語言模型-量化模型載入 (Loading)
 - `bitsandbites_config`
-- P.S. nb_4bit_quant_type 可設定參數："nf4" 或 "fp4"
+  - P.S. nb_4bit_quant_type 可設定參數："nf4" 或 "fp4"
 - `gptq_config`
 - `autogptq_config`
 - `ctransformers_config`
-- P.S. model_type 可設定參數：null 或 "llama"
+  - P.S. model_type 可設定參數：null 或 "llama"
 - `exllama_config`
 - `exllama2_config`
 - `llamacpp_config`
@@ -58,8 +58,8 @@
 
 ### 1.1.6. inference_config
 - **大型語言模型-推理 (Inference):** 配置模型推理過程中的參數，包括批次大小、記憶體管理等。
-- P.S. load_type 可設定參數："gpt" 或 "gptc" 或 "exllama" 或 "exllama2" 或 "llamacpp"
-- P.S. gpt_type 可設定參數："gpt" 或 "autogptq"
+  - P.S. load_type 可設定參數："gpt" 或 "gptc" 或 "exllama" 或 "exllama2" 或 "llamacpp"
+  - P.S. gpt_type 可設定參數："gpt" 或 "autogptq"
 
 ### 1.1.7. prompt_config
 - **大型語言模型-提示 (Prompt):** 定義如何生成和使用提示，以引導模型產生特定類型的回應。
