@@ -9,7 +9,7 @@
   - [1.7. 在 Windows 中創建 Dockerfile 並在 WSL 中構建鏡像](#17-在-windows-中創建-dockerfile-並在-wsl-中構建鏡像)
 - [2. XuanRAG 專案設定指南](#2-xuanrag-專案設定指南)
   - [2.1. 將 XuanRAG 專案放置到指定路徑](#21-將-xuanrag-專案放置到指定路徑)
-  - [2.2. 修改 `docker-compose.yml`](#22-修改-docker-composeyml)
+  - [2.2. 修改 docker-compose.yml](#22-修改-docker-composeyml)
   - [2.3. 開啟終端機](#23-開啟終端機)
 
 
@@ -186,7 +186,7 @@
 [回到目錄](#0-目錄)
 
 
-## 2.2. 修改 `docker-compose.yml`
+## 2.2. 修改 docker-compose.yml
 在進行下一步之前，需要對 `docker-compose.yml` 進行簡單的修改。使用文字編輯器開啟 `docker-compose.yml`，並找到以下行：
 ```yaml
       - ./module:/XuanRAG/module
