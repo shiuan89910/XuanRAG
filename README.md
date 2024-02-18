@@ -32,40 +32,48 @@
 # 1. XuanRAG 專案簡介
 # 1.1. 專案概念圖
 ![XuanRAG Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_concept_map.png)
+
 [回到目錄](#0-目錄)
 
 
 ## 1.2. 使用者介面介紹
 ![XuanRAG UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_ui_introduction.png)
+
 [回到目錄](#0-目錄)
 
 
 ## 1.3. Text Embedding 概念圖
 ![Text Embedding Concept Map](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_concept_map.png)
+
 [回到目錄](#0-目錄)
 
 
 ## 1.4. Text Embedding 使用者介面介紹
 ![Text Embedding UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/text_embedding_ui_introduction.png)
+
 [回到目錄](#0-目錄)
 
 
 ## 1.5. Semantic Search 概念圖
 ### 1.5.1. Chunk Strategy & Embedding
 ![Semantic Search Concept Map 1](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_1.png)
+
 [回到目錄](#0-目錄)
 
 ### 1.5.2. Vector Database
 ![Semantic Search Concept Map 2](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_2.png)
+
 [回到目錄](#0-目錄)
 
 ### 1.5.3. Re-Ranking & Semantic Search
 ![Semantic Search Concept Map 3](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_concept_map_3.png)
+
 [回到目錄](#0-目錄)
 
 
 ## 1.6. Semantic Search 使用者介面介紹
 ![Semantic Search UI Introduction](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/semantic_search_ui_introduction.png)
+
 [回到目錄](#0-目錄)
 
 
@@ -74,6 +82,7 @@
 ## 2.1. XuanRAG 專案流程圖
 ![XuanRAG Project Flowchart](https://github.com/shiuan89910/XuanProjectImage/blob/main/XuanRAG/xuanrag_project_flowchart.png)
 此圖展示 LLM RAG（檢索增強式語言模型生成）專案的架構。每個模組都旨在處理系統的不同方面，確保模組化和易於維護。
+
 [回到目錄](#0-目錄)
 
 ### 2.1.1. 模組描述
@@ -86,18 +95,22 @@
 - `webui.py`：用於與系統互動的網頁用戶介面模組。
 - `saveload.py`：包含儲存和加載檔案或數據的功能。
 - `util.py`：提供整個專案中使用的實用功能。
+
 [回到目錄](#0-目錄)
 
 ### 2.1.2. 數據流向
 箭頭指示模組之間的數據流向和依賴關係。例如：param.py 是一個基礎模組，它向 gpt.py 和 llama.py 提供參數，這兩個模組又向 webui.py 提供問答互動的結果、embedding.py 模組與數據庫緊密合作以管理嵌入。
+
 [回到目錄](#0-目錄)
 
 ### 2.1.3. 配置
 .json config 文件被用來儲存配置細節，這些配置細節會被相應的模組加載和使用。
+
 [回到目錄](#0-目錄)
 
 ### 2.1.4. 使用方式
 透過 webui.py 來進行，它協調 gpt.py 和 llama.py 模型的使用，以及由 database.py 和 embedding.py 提供的必要數據處理。
+
 [回到目錄](#0-目錄)
 
 
@@ -137,6 +150,7 @@ XuanRAG
 ├── requirements.txt                  # 專案依賴的 Python 套件列表
 ```
 此目錄結構提供專案組織的直觀視圖，每個組件都被整理在合適的位置，方便開發者快速導航和理解專案的構建。
+
 [回到目錄](#0-目錄)
 
 
@@ -145,6 +159,7 @@ XuanRAG
 ## 3.1. 安裝 Conda
 首先，安裝 Conda 環境管理器。推薦使用 Miniconda，因為它比 Anaconda 更輕量。可以從以下連結下載安裝：
 [Miniconda](https://docs.anaconda.com/free/miniconda/index.html)
+
 [回到目錄](#0-目錄)
 
 
@@ -154,6 +169,7 @@ XuanRAG
 conda create -n XuanRAG python=3.10.9
 conda activate XuanRAG
 ```
+
 [回到目錄](#0-目錄)
 
 
@@ -165,6 +181,7 @@ conda install -c anaconda git
 conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia
 #conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
+
 [回到目錄](#0-目錄)
 
 
@@ -180,17 +197,20 @@ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=
 cd XuanRAG
 pip install -r requirements.txt
 ```
+
 [回到目錄](#0-目錄)
 
 
 ## 3.5. 下載 Embedding 與 GPT 模型
 Embedding 請參照：[Embedding 模型](https://github.com/shiuan89910/XuanRAG/blob/main/model/gpt/README.md)
 GPT 請參照：[GPT 模型](https://github.com/shiuan89910/XuanRAG/blob/main/model/embedding/README.md)
+
 [回到目錄](#0-目錄)
 
 
 ## 3.6. 配置 .json 配置檔
 .json 配置檔請參照：[.json 配置檔](https://github.com/shiuan89910/XuanRAG/blob/main/setting/README.md)
+
 [回到目錄](#0-目錄)
 
 
@@ -205,6 +225,7 @@ GPT 請參照：[GPT 模型](https://github.com/shiuan89910/XuanRAG/blob/main/mo
 cd module
 python webui.py
 ```
+
 [回到目錄](#0-目錄)
 
 
@@ -218,4 +239,5 @@ Docker 安裝方式請參照：[Docker 安裝方式](https://github.com/shiuan89
 
 # 5. 致謝
 本專案 `gpt.py`、`llama.py`、`util.py` 部分程式碼參考了 [oobabooga](https://github.com/oobabooga/text-generation-webui) 的實作，特此致謝。原始程式碼採用 [AGPL-3.0 license](https://github.com/shiuan89910/XuanRAG/tree/main?tab=GPL-3.0-1-ov-file#GPL-3.0-1-ov-file) 許可證。
+
 [回到目錄](#0-目錄)
