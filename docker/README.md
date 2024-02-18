@@ -1,6 +1,7 @@
 # 1. Docker 配置
 ## 1.1. 安裝 Nvidia CUDA 驅動於 Windows
-- [Nvidia CUDA 驅動下載頁面](https://www.nvidia.com/Download/index.aspx?lang=en-us) 或 [Nvidia 顯卡驅動下載頁面](https://www.nvidia.com.tw/download/driverResults.aspx/193749/tw)
+- [Nvidia CUDA 驅動下載頁面](https://www.nvidia.com/Download/index.aspx?lang=en-us)
+- [Nvidia 顯卡驅動下載頁面](https://www.nvidia.com.tw/download/driverResults.aspx/193749/tw)
   - 選擇正確的驅動版本（11.8）進行安裝。
 
 
@@ -11,7 +12,7 @@
     ```bash
     wsl --install
     ```
-  - 或者，進行（進階）設定，設置預設版本為 2，列出可用發行版，指定發行版安裝，執行以下命令：
+  - 或者，透過（進階）設定，設置預設版本為 2，列出可用發行版，指定發行版安裝，執行以下命令：
     ```bash
     wsl --set-default-version 2
     wsl --list --online
@@ -37,6 +38,7 @@
     sudo apt-get -y install cuda
     ```
 
+
 ## 1.4. 在 WSL 中進行後續步驟
 - 將 CUDA 路徑添加至 `.bashrc`，執行以下命令與添加複製路徑 (請逐步執行)：
   ```bash
@@ -57,6 +59,89 @@
   nvidia-smi
   nvcc --version
   ```
+
+
+## 1.5. 在 Windows 中安裝 Docker
+- [Docker 在 Windows 的安裝指南](https://learn.microsoft.com/zh-tw/windows/wsl/tutorials/wsl-containers)
+  - 安裝 Docker Desktop。
+  - 在 Settings -> General -> 勾選 "Use the WSL 2 based engine"
+  - 在 Settings -> Resources -> WSL Integration -> 啟用 "Ubuntu (Distro Name)"
+
+
+## 1.6. 在 WSL 中安裝 Docker 和 NVIDIA 容器工具包
+- 相關鏈接：
+  - [Docker 容器使用 GPU 教程](https://saturncloud.io/blog/how-to-use-gpu-from-a-docker-container-a-guide-for-data-scientists-and-software-engineers/)
+  - [Docker 安裝 Ubuntu 教程](https://docs.docker.com/engine/install/ubuntu/)
+  - [NVIDIA 容器工具包安裝指南](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+  - [NVIDIA CUDA Docker 鏡像](https://hub.docker.com/r/nvidia/cuda/tags)
+    - [11.8.0-runtime-ubuntu22.04](https://hub.docker.com/layers/nvidia/cuda/11.8.0-runtime-ubuntu22.04/images/sha256-0b654e1fcb503532817c27b4088d0f121b86eaeb7676b2268dd4e448df333bea?context=explore)
+    - [11.8.0-devel-ubuntu22.04](https://hub.docker.com/layers/nvidia/cuda/11.8.0-devel-ubuntu22.04/images/sha256-e395e2d30c63b6bd9ced510c8d09b1beb76bedaca4c527f3196348cce16a0da2?context=explore)
+  - 安裝 Docker 和 NVIDIA 容器工具包，並配置用戶組，執行以下命令：
+    ```bash
+    # 重啟終端
+    wsl
+
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl gnupg
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    echo \
+      "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    ```
+  - 檢查結果，執行以下命令：
+    ```bash
+    sudo docker run hello-world
+    ```
+  - 安裝 NVIDIA 容器工具包，配置 Docker 和 Containerd 以支援 GPU，執行以下命令：
+    ```bash
+    # 重啟終端
+    wsl
+
+    curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+        sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+        sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
+      && \
+        sudo apt-get update
+    sudo apt-get install -y nvidia-container-toolkit
+    sudo nvidia-ctk runtime configure --runtime=docker
+    sudo systemctl restart docker
+    sudo nvidia-ctk runtime configure --runtime=containerd
+    sudo systemctl restart containerd
+     
+    # 以下為可選配置
+    sudo nvidia-ctk runtime configure --runtime=crio
+    sudo systemctl restart crio
+    ```
+  - 將當前用戶添加至 Docker 群組，以免每次都需要 sudo，執行以下命令：
+    ```bash
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    ```
+  - 檢查 GPU 支援，執行以下命令：
+    ```bash
+    docker run --gpus all nvidia/cuda:11.8.0-runtime-ubuntu22.04 nvidia-smi
+    ```
+
+    
+## 1.7. 在 Windows 中創建 Dockerfile 並在 WSL 中構建鏡像
+- 將`XuanRAG`專案放置於 Windows 路徑 C:\Users\(User Name)。
+- 使用以下命令啟動：
+  ```bash
+  # 重啟終端
+  wsl
+  
+  cd XuanRAG
+  ln -s docker/{XuanRAG,docker-compose.yml} .
+  docker compose up
+  ```
+- 將鏡像上傳至 Hub（可選）。
 
 
 
