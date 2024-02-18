@@ -216,6 +216,7 @@ GPT 請參照：[GPT 模型](https://github.com/shiuan89910/XuanRAG/blob/main/mo
 
 ## 3.7. 數據相關檔案 Embedding
 數據相關檔案 Embedding 的方式請參照：[檔案 Embedding 的方式](https://github.com/shiuan89910/XuanRAG/blob/main/data/README.md)
+
 [回到目錄](#0-目錄)
 
 
