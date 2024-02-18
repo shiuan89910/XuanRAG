@@ -2,7 +2,7 @@
 - [1. 外部領域知識 (External Domain Knowledge) 的檔案路徑](#1-外部領域知識-external-domain-knowledge-的檔案路徑)
   - [1.1. 轉換方式](#11-轉換方式)
     - [1.1.2. WebUI 轉換流程](#112-webui-轉換流程)
-    - [1.1.3. XuanRAG 模組中的 `database.py` 檔轉換流程](#113-xuanrag-模組中的-databasepy-檔轉換流程)
+    - [1.1.3. XuanRAG 模組中的 database.py 檔轉換流程](#113-xuanrag-模組中的-databasepy-檔轉換流程)
 
 
 # 1. 外部領域知識 (External Domain Knowledge) 的檔案路徑
@@ -20,7 +20,7 @@
 3. 點擊 `"Load All Settings"` 進行設定刷新。
 4. 點擊 `"Create Load Collection"` 進行轉換。
 
-### 1.1.3. XuanRAG 模組中的 `database.py` 檔轉換流程
+### 1.1.3. XuanRAG 模組中的 database.py 檔轉換流程
 同樣，在進行轉換之前，請確保已備份將要取代的同檔名向量資料庫。檔名為目錄`XuanRAG/setting/.json`檔中的`"database_config"`的`"query_database_name"`。
 再將外部領域知識庫存成 `.txt` 檔，檔案名稱需與目錄`XuanRAG/setting/.json`檔中的`"saveload_config"`的`"data_name"`相同。
 
