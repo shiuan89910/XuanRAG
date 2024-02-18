@@ -1,8 +1,8 @@
-# 增強檢索大型語言模型 (RAG LLM) .json 配置檔
+# 1. 增強檢索大型語言模型 (RAG LLM) .json 配置檔
 此配置檔案旨在提供增強檢索大型語言模型 (RAG LLM) 需要的各項配置參數，以便於使用者快速部署和調整模型性能。
 
 
-## 配置區塊 (Configuration Blocks)
+## 1.1. 配置區塊 (Configuration Blocks)
 配置文件包含以下幾個主要配置區塊，每個區塊都扮演著不同的角色，針對不同的模型和應用需求提供配置支持。
 
 ### `saveload_config`
