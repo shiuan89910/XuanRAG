@@ -1,3 +1,10 @@
+# 0. 目錄
+- [1. 向量資料庫 (Vector Database) 的檔案路徑](#1-向量資料庫-vector-database-的檔案路徑)
+  - [1.1. 增強檢索向量資料庫（RAG Vector Database）](#11-增強檢索向量資料庫rag-vector-database)
+  - [1.2. 外部領域知識（External Domain Knowledge）](#12-外部領域知識external-domain-knowledge)
+  - [1.3. 歷史訊息資料庫（History Database）](#13-歷史訊息資料庫history-database)
+
+
 # 1. 向量資料庫 (Vector Database) 的檔案路徑
 向量資料庫用於儲存和檢索透過機器學習模型轉換而來的向量形式資料。以下是向量資料庫相關的主要組件和概念介紹：
 
