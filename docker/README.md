@@ -1,8 +1,25 @@
+# 0. 目錄
+- [1. Docker 配置](#1-docker-配置)
+  - [1.1. 安裝 Nvidia CUDA 驅動於 Windows](#11-安裝-nvidia-cuda-驅動於-windows)
+  - [1.2. 透過終端安裝 WSL 於 Windows](#12-透過終端安裝-wsl-於-windows)
+  - [1.3. 在 WSL 中安裝 CUDA Toolkit](#13-在-wsl-中安裝-cuda-toolkit)
+  - [1.4. 在 WSL 中進行後續步驟](#14-在-wsl-中進行後續步驟)
+  - [1.5. 在 Windows 中安裝 Docker](#15-在-windows-中安裝-docker)
+  - [1.6. 在 WSL 中安裝 Docker 和 NVIDIA 容器工具包](#16-在-wsl-中安裝-docker-和-nvidia-容器工具包)
+  - [1.7. 在 Windows 中創建 Dockerfile 並在 WSL 中構建鏡像](#17-在-windows-中創建-dockerfile-並在-wsl-中構建鏡像)
+- [2. XuanRAG 專案設定指南](#2-xuanrag-專案設定指南)
+  - [2.1. 將 XuanRAG 專案放置到指定路徑](#21-將-xuanrag-專案放置到指定路徑)
+  - [2.2. 修改 `docker-compose.yml`](#22-修改-docker-composeyml)
+  - [2.3. 開啟終端機](#23-開啟終端機)
+
+
 # 1. Docker 配置
 ## 1.1. 安裝 Nvidia CUDA 驅動於 Windows
 - [Nvidia CUDA 驅動下載頁面](https://www.nvidia.com/Download/index.aspx?lang=en-us)
 - [Nvidia 顯卡驅動下載頁面](https://www.nvidia.com.tw/download/driverResults.aspx/193749/tw)
   - 選擇正確的驅動版本（11.8）進行安裝。
+ 
+[回到目錄](#0-目錄)
 
 
 ## 1.2. 透過終端安裝 WSL 於 Windows
@@ -24,6 +41,8 @@
     wsl --list --verbose
     ```
 
+[回到目錄](#0-目錄)
+
 
 ## 1.3. 在 WSL 中安裝 CUDA Toolkit
 - [CUDA Toolkit 下載頁面](https://developer.nvidia.com/cuda-11-8-0-download-archive)
@@ -37,6 +56,8 @@
     sudo apt-get update
     sudo apt-get -y install cuda
     ```
+
+[回到目錄](#0-目錄)
 
 
 ## 1.4. 在 WSL 中進行後續步驟
@@ -60,12 +81,16 @@
   nvcc --version
   ```
 
+[回到目錄](#0-目錄)
+
 
 ## 1.5. 在 Windows 中安裝 Docker
 - [Docker 在 Windows 的安裝指南](https://learn.microsoft.com/zh-tw/windows/wsl/tutorials/wsl-containers)
   - 安裝 Docker Desktop。
   - 在 Settings -> General -> 勾選 "Use the WSL 2 based engine"
   - 在 Settings -> Resources -> WSL Integration -> 啟用 "Ubuntu (Distro Name)"
+
+[回到目錄](#0-目錄)
 
 
 ## 1.6. 在 WSL 中安裝 Docker 和 NVIDIA 容器工具包
@@ -129,6 +154,8 @@
     docker run --gpus all nvidia/cuda:11.8.0-runtime-ubuntu22.04 nvidia-smi
     ```
 
+[回到目錄](#0-目錄)
+
     
 ## 1.7. 在 Windows 中創建 Dockerfile 並在 WSL 中構建鏡像
 - 將`XuanRAG`專案放置於 Windows 路徑 C:\Users\(User Name)。
@@ -143,14 +170,20 @@
   ```
 - 將鏡像上傳至 Hub（可選）。
 
+[回到目錄](#0-目錄)
+
 
 
 # 2. XuanRAG 專案設定指南
 本指南將引導您如何將 XuanRAG 專案放置到指定路徑，並透過 Docker 啟動專案。
 
+[回到目錄](#0-目錄)
+
 
 ## 2.1. 將 XuanRAG 專案放置到指定路徑
 首先，將 XuanRAG 專案放置到 `C:\Users\(User Name)` 路徑下。`(User Name)` 為您電腦的實際使用者名稱。
+
+[回到目錄](#0-目錄)
 
 
 ## 2.2. 修改 `docker-compose.yml`
@@ -164,6 +197,8 @@
       # - ./module:/XuanRAG/module
 ```
 
+[回到目錄](#0-目錄)
+
 
 ## 2.3. 開啟終端機
 在終端機中，請依照以下指令操作
@@ -173,3 +208,5 @@ cd XuanRAG # 切換到 XuanRAG 專案目錄
 ln -s docker/{XuanRAG,docker-compose.yml} . # 建立到 docker 目錄中 XuanRAG 和 docker-compose.yml 的符號連結
 docker compose up # 啟動 Docker 容器
 ```
+
+[回到目錄](#0-目錄)
